@@ -1,0 +1,45 @@
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary) !important;
+}
+
+.navbar-brand i {
+    margin-right: 8px;
+}
+
+.search-box {
+    background: var(--secondary);
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 180px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--dark);
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
