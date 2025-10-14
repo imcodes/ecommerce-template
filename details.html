@@ -251,7 +251,7 @@
                     <div class="review">
                         <div class="review-header">
                             <div class="review-author">Michael Johnson</div>
-                            <div class="review-date">October 15, 2023</div>
+                            <div class="review-date">October 15, 2025</div>
                         </div>
                         <div class="review-rating">
                             <i class="fas fa-star"></i>
@@ -266,7 +266,7 @@
                     <div class="review">
                         <div class="review-header">
                             <div class="review-author">Sarah Williams</div>
-                            <div class="review-date">October 10, 2023</div>
+                            <div class="review-date">October 10, 2025</div>
                         </div>
                         <div class="review-rating">
                             <i class="fas fa-star"></i>
@@ -281,7 +281,7 @@
                     <div class="review">
                         <div class="review-header">
                             <div class="review-author">David Chen</div>
-                            <div class="review-date">October 5, 2023</div>
+                            <div class="review-date">October 5, 2025</div>
                         </div>
                         <div class="review-rating">
                             <i class="fas fa-star"></i>
@@ -323,7 +323,7 @@
                 <div class="product-card">
                     <img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="MacBook" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-title">MacBook Pro 2023</h3>
+                        <h3 class="product-title">MacBook Pro 2025</h3>
                         <div class="card-price">$2,299.99</div>
                         <div class="card-rating">
                             <i class="fas fa-star"></i>
@@ -426,101 +426,27 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 TechGadget. All rights reserved.</p>
+                <p>&copy; 2025 TechGadget. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/functions.js"></script>
     
     <script>
         // Product Details Page JavaScript
         document.addEventListener('DOMContentLoaded', function() {
             // Image gallery functionality
-            const mainImage = document.getElementById('mainImage');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    // Update main image
-                    mainImage.src = this.getAttribute('data-image');
-                    
-                    // Update active thumbnail
-                    thumbnails.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            
+            imageSelector();
             // Quantity selector functionality
-            const quantityInput = document.getElementById('quantity');
-            const decreaseBtn = document.getElementById('decreaseQty');
-            const increaseBtn = document.getElementById('increaseQty');
-            
-            decreaseBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            });
-            
-            increaseBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                quantityInput.value = currentValue + 1;
-            });
-            
-            // Add to cart functionality
-            const addToCartBtn = document.getElementById('addToCart');
-            const cartCount = document.querySelector('.cart-count');
-            
-            addToCartBtn.addEventListener('click', function() {
-                let currentCount = parseInt(cartCount.textContent);
-                let quantity = parseInt(quantityInput.value);
-                cartCount.textContent = currentCount + quantity;
-                
-                // Animation effect
-                cartCount.classList.add('pulse');
-                setTimeout(() => {
-                    cartCount.classList.remove('pulse');
-                }, 300);
-            });
-            
-            // Wishlist functionality
-            const wishlistBtn = document.getElementById('wishlistBtn');
-            const wishlistIcon = wishlistBtn.querySelector('i');
-            
-            wishlistBtn.addEventListener('click', function() {
-                wishlistBtn.classList.toggle('active');
-                if (wishlistBtn.classList.contains('active')) {
-                    wishlistIcon.classList.remove('far');
-                    wishlistIcon.classList.add('fas');
-                } else {
-                    wishlistIcon.classList.remove('fas');
-                    wishlistIcon.classList.add('far');
-                }
-            });
-            
-            // Tab functionality
-            const tabHeaders = document.querySelectorAll('.tab-header');
-            const tabPanes = document.querySelectorAll('.tab-pane');
-            
-            tabHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
-                    
-                    // Update active tab header
-                    tabHeaders.forEach(h => h.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Update active tab pane
-                    tabPanes.forEach(pane => {
-                        pane.classList.remove('active');
-                        if (pane.id === tabId) {
-                            pane.classList.add('active');
-                        }
-                    });
-                });
-            });
+            quantitySelector();
+            addToWishList();
+            cartButton();
+            addToCart();
+            initializeTab();
         });
     </script>
 </body>

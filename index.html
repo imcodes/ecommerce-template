@@ -65,7 +65,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-content">
-                        <h1>Latest Tech Gadgets 2023</h1>
+                        <h1>Latest Tech Gadgets 2025</h1>
                         <p>Discover our newest collection of high-performance laptops and premium accessories for work and gaming.</p>
                         <div class="hero-actions">
                             <a href="#" class="btn btn-primary me-2">Shop Now</a>
@@ -314,7 +314,7 @@
                         <span class="card-badge">Hot</span>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">MacBook Pro 2023</h3>
+                        <h3 class="product-title">MacBook Pro 2025</h3>
                         <div class="product-price">$2,299.99</div>
                         <div class="product-rating">
                             <i class="fas fa-star"></i>
@@ -450,74 +450,21 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 TechGadget. All rights reserved.</p>
+                <p>&copy; 2025 TechGadget. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <!-- Countdown Timer -->
+    <script src="assets/js/functions.js"></script>
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const days = document.getElementById('days');
-            const hours = document.getElementById('hours');
-            const minutes = document.getElementById('minutes');
-            const seconds = document.getElementById('seconds');
-            
-            // Set the date we're counting down to (3 days from now)
-            const countDownDate = new Date();
-            countDownDate.setDate(countDownDate.getDate() + 3);
-            
-            // Update the countdown every 1 second
-            const x = setInterval(function() {
-                // Get today's date and time
-                const now = new Date().getTime();
-                
-                // Find the distance between now and the countdown date
-                const distance = countDownDate - now;
-                
-                // Time calculations for days, hours, minutes and seconds
-                const daysValue = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hoursValue = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutesValue = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const secondsValue = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Display the results
-                days.innerHTML = daysValue < 10 ? '0' + daysValue : daysValue;
-                hours.innerHTML = hoursValue < 10 ? '0' + hoursValue : hoursValue;
-                minutes.innerHTML = minutesValue < 10 ? '0' + minutesValue : minutesValue;
-                seconds.innerHTML = secondsValue < 10 ? '0' + secondsValue : secondsValue;
-                
-                // If the countdown is finished, write some text
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.querySelector('.deal-timer').innerHTML = "EXPIRED";
-                }
-            }, 1000);
-        }
-        
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
             updateCountdown();
+            addToCart();
             
-            // Add to cart functionality
-            const addToCartButtons = document.querySelectorAll('.btn-primary');
-            const cartCount = document.querySelector('.cart-count');
-            
-            addToCartButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    let currentCount = parseInt(cartCount.textContent);
-                    cartCount.textContent = currentCount + 1;
-                    
-                    // Animation effect
-                    cartCount.classList.add('pulse');
-                    setTimeout(() => {
-                        cartCount.classList.remove('pulse');
-                    }, 300);
-                });
-            });
         });
     </script>
 </body>
